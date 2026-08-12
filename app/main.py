@@ -1,10 +1,10 @@
-def copy_file(copy: str) -> None:
-    lst = copy.split()
+def copy_file(command: str) -> None:
+    parts = command.split()
     try:
-        if not lst[0] == "cp":
+        if not parts[0] == "cp":
             return
-        if not lst[1] == lst[2]:
-            with open(lst[1], "r") as f, open(lst[2], "w") as g:
-                g.write(f.read())
+        if not parts[1] == parts[2]:
+            with open(parts[1], "r") as source_file, open(parts[2], "w") as destination_file:
+                destination_file.write(source_file.read())
     except Exception as e:
         print(e)
